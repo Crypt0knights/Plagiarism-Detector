@@ -593,15 +593,15 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 14px;
 }
 
-/* Services Section
+/* features Section
 --------------------------------*/
-#services {
+#features {
   background: #fff;
   background-size: cover;
   padding: 80px 0 60px 0;
 }
 
-#services .box {
+#features .box {
   padding: 50px 20px;
   margin-bottom: 50px;
   text-align: center;
@@ -611,7 +611,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   background: #fafafa;
 }
 
-#services .icon {
+#features .icon {
   position: absolute;
   top: -36px;
   left: calc(50% - 36px);
@@ -628,40 +628,40 @@ body.mobile-nav-active #mobile-nav-toggle {
   background: #2dc997;
 }
 
-#services .icon a {
+#features .icon a {
   display: inline-block;
 }
 
-#services .icon i {
+#features .icon i {
   color: #fff;
   font-size: 24px;
 }
 
-#services .box:hover .icon {
+#features .box:hover .icon {
   background: #fff;
   border: 2px solid #2dc997;
 }
 
-#services .box:hover .icon i {
+#features .box:hover .icon i {
   color: #2dc997;
 }
 
-#services .box:hover .icon a {
+#features .box:hover .icon a {
   color: #2dc997;
 }
 
-#services .title {
+#features .title {
   font-weight: 700;
   font-size: 18px;
   margin-bottom: 15px;
   text-transform: uppercase;
 }
 
-#services .title a {
+#features .title a {
   color: #111;
 }
 
-#services .description {
+#features .description {
   font-size: 14px;
   line-height: 24px;
 }
