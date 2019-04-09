@@ -824,6 +824,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #team .member .pic img {
   max-width: 100%;
+  border-radius: 50%;
 }
 
 #team .member h4 {
