@@ -1,6 +1,6 @@
 ## Plagiarism-Detector
 
-[![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://crypt0knights.github.io/Plagiarism-Detector/) [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Crypt0knights/Plagiarism-Detector/LICENSE) [![Open Source Love svg3](https://badges.frapsoft.com/os/v3/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/) 
+[![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://crypt0knights.github.io/Plagiarism-Detector/) [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Crypt0knights/Plagiarism-Detector/LICENSE) [![Open Source Love svg3](https://badges.frapsoft.com/os/v3/open-source.svg?v=103)](http://github.com/crypt0knights/) 
 ### About:
 
 Plagiarism is a serious problem in research. In this project, we will implement a very simple plagiarism detector. Our input will be a corpus of existing documents and a potentially plagiarized document. Our output will be a set of URLs from which the document was plagiarized from and the ratio upto which it was plagiarized in the form of statistics.
