@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Plagiarism Checker</title>
@@ -12,7 +13,8 @@
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700"
+    rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +23,7 @@
   <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="lib/animate/animate.min.css" rel="stylesheet">
 
-  
+
   <link href="css/style.css" rel="stylesheet">
 </head>
 
@@ -48,13 +50,16 @@
     <div class="hero-container">
       <h1>Plagiarism Cops</h1>
       <h2>We are a team of Anti-Cheating Squad. Be aware!!</h2>
-      <label for="file-upload" class="btn-get-started">
-        <i class="fa fa-upload"></i> Upload the file
-    </label>
-    <input id="file-upload" type="file"/>
-    <style>
-      
-    </style>
+      <form class="abc" action="/upload" method="POST" enctype="multipart/form-data">
+        <label for="avatar">Select the document:</label>
+        <input class="btn btn-default" type="file" id="avatar" name="pdffile" accept="image/png, image/jpeg" required>
+        <input class="btn btn-default" type="submit" value="Upload pdf" name="submit">
+      </form>
+      </label>
+
+      <style>
+
+      </style>
     </div>
   </section>
 
@@ -67,26 +72,38 @@
           <div class="col-lg-6 content order-lg-1 order-2">
             <h2 class="title">Few Words About Us</h2>
             <p>
-              PlagiarismCops is a platform to check plagiarized documents and research papers. To achieve this, we are using efficient String Matching Algorithms and Natural Language Processing. It has many applications like the following.
+              PlagiarismCops is a platform to check plagiarized documents and research papers. To achieve this, we are
+              using efficient String Matching Algorithms and Natural Language Processing. It has many applications like
+              the following.
             </p>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
               <div class="icon"><i class="fa fa-check"></i></div>
               <h4 class="title"><a href="">Verifying Originality</a></h4>
-              <p class="description">A situation faced by countless professors, teachers and other educators every day is to verify the originality of any document. It’s also the one faced by editors in newsrooms and for sites across the Web The goal is to either verify that the work is original or determine if it might be plagiarized. </p>
+              <p class="description">A situation faced by countless professors, teachers and other educators every day
+                is to verify the originality of any document. It’s also the one faced by editors in newsrooms and for
+                sites across the Web The goal is to either verify that the work is original or determine if it might be
+                plagiarized. </p>
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
               <div class="icon"><i class="fa fa-check"></i></div>
               <h4 class="title"><a href="">Tracking Content Misuse</a></h4>
-              <p class="description">This is the more common situation we talk about on Plagiarism Today. A content creator has written a piece of material they know to be authentic and want to track how it is being used on the Web. This involves not merely returning one accurate result, but rather, all the results available.</p>
+              <p class="description">This is the more common situation we talk about on Plagiarism Today. A content
+                creator has written a piece of material they know to be authentic and want to track how it is being used
+                on the Web. This involves not merely returning one accurate result, but rather, all the results
+                available.</p>
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.6s">
               <div class="icon"><i class="fa fa-check"></i></div>
               <h4 class="title"><a href=""></a>In-Depth Plagiarism Analysis</h4>
-              <p class="description">The final situation is one where one already suspects the work of being a plagiarism and has reduced the field of candidates down to a a one or a few documents. The checker needs to either confirm those suspicions or get a more accurate picture on just how extensive the plagiarism is.</p>
+              <p class="description">The final situation is one where one already suspects the work of being a
+                plagiarism and has reduced the field of candidates down to a a one or a few documents. The checker needs
+                to either confirm those suspicions or get a more accurate picture on just how extensive the plagiarism
+                is.</p>
             </div>
+
 
           </div>
 
@@ -95,120 +112,131 @@
 
       </div>
     </section>
-  </section>
-  <section id="features">
-    <div class="container wow fadeIn">
-      <div class="section-header">
-        <h3 class="section-title">Features</h3>
-        <p class="section-description">Features we offer in PlagiarismCops to detect plagiarism</p>
-      </div>
-      <div class="row">
-        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-          <div class="box">
-            <div class="icon"><a href=""><i class="fa fa-file-text-o"></i></a></div>
-            <h4 class="title"><a href="">PDF</a></h4>
-            <p class="description">Uploading PDF Documents is supported in our portal to make it even more friendly for scholars and researchers</p>
-          </div>
+    </section>
+    <section id="features">
+      <div class="container wow fadeIn">
+        <div class="section-header">
+          <h3 class="section-title">Features</h3>
+          <p class="section-description">Features we offer in PlagiarismCops to detect plagiarism</p>
         </div>
-        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-          <div class="box">
-            <div class="icon"><a href=""><i class="fa fa-align-center"></i></a></div>
-            <h4 class="title"><a href="">TEXT</a></h4>
-            <p class="description">Text based input can also be supplied to our portal to make it friendly for general users</p>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="box">
+              <div class="icon"><a href=""><i class="fa fa-file-text-o"></i></a></div>
+              <h4 class="title"><a href="">PDF</a></h4>
+              <p class="description">Uploading PDF Documents is supported in our portal to make it even more friendly
+                for scholars and researchers</p>
+            </div>
           </div>
-        </div>
-        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-          <div class="box">
-            <div class="icon"><a href=""><i class="fa fa-external-link"></i></a></div>
-            <h4 class="title"><a href="">URL</a></h4>
-            <p class="description">We return URL address of matched Web pages and PDF documents to find the actual source of copied text</p>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+            <div class="box">
+              <div class="icon"><a href=""><i class="fa fa-align-center"></i></a></div>
+              <h4 class="title"><a href="">TEXT</a></h4>
+              <p class="description">Text based input can also be supplied to our portal to make it friendly for general
+                users</p>
+            </div>
           </div>
-        </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+            <div class="box">
+              <div class="icon"><a href=""><i class="fa fa-external-link"></i></a></div>
+              <h4 class="title"><a href="">URL</a></h4>
+              <p class="description">We return URL address of matched Web pages and PDF documents to find the actual
+                source of copied text</p>
+            </div>
+          </div>
 
-        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-          <div class="box">
-            <div class="icon"><a href=""><i class="fa fa-bar-chart-o"></i></a></div>
-            <h4 class="title"><a href="">RATIO</a></h4>
-            <p class="description">We also return the percentage of matched corpus of text to detect how much input text/document is plagiarised.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="team">
-    <div class="container wow fadeInUp">
-      <div class="section-header">
-        <h3 class="section-title">Team</h3>
-        <p class="section-description">We are a bunch of passionate developers from Jaypee Institute of Information Technology</p>
-      </div>
-      <div class="row">
-        <div class="col-lg-3 col-md-6">
-          <div class="member">
-            <div class="pic"><img src="img/team-1.png" alt=""></div>
-            <h4>Siddhant N. Trivedi</h4>
-            <span>I.T. Undergrad.</span>
-            <span>sidntrivedi012</span>
-            <div class="social">
-              <a href="https://twitter.com/sidntrivedi012" target="_blank"><i class="fa fa-twitter"></i></a>
-              <a href="https://www.facebook.com/siddhant.trivedi.927" target="_blank"><i class="fa fa-facebook"></i></a>
-              <a href="https://www.linkedin.com/in/siddhantntrivedi/" target="_blank"><i class="fa fa-linkedin"></i></a>
-              <a href="https://github.com/sidntrivedi012" target="_blank"><i class="fa fa-github"></i></a>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="box">
+              <div class="icon"><a href=""><i class="fa fa-bar-chart-o"></i></a></div>
+              <h4 class="title"><a href="">RATIO</a></h4>
+              <p class="description">We also return the percentage of matched corpus of text to detect how much input
+                text/document is plagiarised.</p>
             </div>
           </div>
         </div>
 
-        <div class="col-lg-3 col-md-6">
-          <div class="member">
-            <div class="pic"><img src="img/team-2.png" alt=""></div>
-            <h4>Mayank Singh</h4>
-            <span>I.T. Undergrad.</span>
-            <span>code-monk08</span>
-            <div class="social">
-              <a href="https://twitter.com/codemonk08_" target="_blank"><i class="fa fa-twitter"></i></a>
-              <a href="https://www.facebook.com/codemonk08" target="_blank"><i class="fa fa-facebook"></i></a>
-              <a href="https://www.linkedin.com/in/code-monk08/" target="_blank"><i class="fa fa-linkedin"></i></a>
-              <a href="https://github.com/code-monk08" target="_blank"><i class="fa fa-github"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6">
-          <div class="member">
-            <div class="pic"><img src="img/team-3.png" alt=""></div>
-            <h4>Aman Verma</h4>
-            <span>I.T. Undergrad.</span>
-            <span>nightwarrior-xxx</span>
-            <div class="social">
-              <a href="https://twitter.com/nightwarrior_xx" target="_blank"><i class="fa fa-twitter"></i></a>
-              <a href="https://www.facebook.com/aman.verma.94849410" target="_blank"><i class="fa fa-facebook"></i></a>
-              <a href="https://www.linkedin.com/in/developer-aman-verma/" target="_blank"><i class="fa fa-linkedin"></i></a>
-              <a href="https://github.com/nightwarrior-xxx" target="_blank"><i class="fa fa-github"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6">
-          <div class="member">
-            <div class="pic"><img src="img/team-4.png" alt=""></div>
-            <h4>Aditya Raushan</h4>
-            <span>I.T. Undergrad.</span>
-            <span>araushan</span>
-            <div class="social">
-              <a href="https://twitter.com/araushan001" target="_blank"><i class="fa fa-twitter"></i></a>
-              <a href="https://www.facebook.com/aditya.raushan.54" target="_blank"><i class="fa fa-facebook"></i></a>
-              <a href="https://www.linkedin.com/in/aditya-raushan-81056514b/" target="_blank"><i class="fa fa-linkedin"></i></a>
-              <a href="https://github.com/araushan" target="_blank"><i class="fa fa-github"></i></a>
-            </div>
-          </div>
-        </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <section id="team">
+      <div class="container wow fadeInUp">
+        <div class="section-header">
+          <h3 class="section-title">Team</h3>
+          <p class="section-description">We are a bunch of passionate developers from Jaypee Institute of Information
+            Technology</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="img/team-1.png" alt=""></div>
+              <h4>Siddhant N. Trivedi</h4>
+              <span>I.T. Undergrad.</span>
+              <span>sidntrivedi012</span>
+              <div class="social">
+                <a href="https://twitter.com/sidntrivedi012" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.facebook.com/siddhant.trivedi.927" target="_blank"><i
+                    class="fa fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/siddhantntrivedi/" target="_blank"><i
+                    class="fa fa-linkedin"></i></a>
+                <a href="https://github.com/sidntrivedi012" target="_blank"><i class="fa fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="img/team-2.png" alt=""></div>
+              <h4>Mayank Singh</h4>
+              <span>I.T. Undergrad.</span>
+              <span>code-monk08</span>
+              <div class="social">
+                <a href="https://twitter.com/codemonk08_" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.facebook.com/codemonk08" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/code-monk08/" target="_blank"><i class="fa fa-linkedin"></i></a>
+                <a href="https://github.com/code-monk08" target="_blank"><i class="fa fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="img/team-3.png" alt=""></div>
+              <h4>Aman Verma</h4>
+              <span>I.T. Undergrad.</span>
+              <span>nightwarrior-xxx</span>
+              <div class="social">
+                <a href="https://twitter.com/nightwarrior_xx" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.facebook.com/aman.verma.94849410" target="_blank"><i
+                    class="fa fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/developer-aman-verma/" target="_blank"><i
+                    class="fa fa-linkedin"></i></a>
+                <a href="https://github.com/nightwarrior-xxx" target="_blank"><i class="fa fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="img/team-4.png" alt=""></div>
+              <h4>Aditya Raushan</h4>
+              <span>I.T. Undergrad.</span>
+              <span>araushan</span>
+              <div class="social">
+                <a href="https://twitter.com/araushan001" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.facebook.com/aditya.raushan.54" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/aditya-raushan-81056514b/" target="_blank"><i
+                    class="fa fa-linkedin"></i></a>
+                <a href="https://github.com/araushan" target="_blank"><i class="fa fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
 
   </main>
+
 
 
   <footer id="footer">
@@ -240,4 +268,5 @@
   <script src="js/main.js"></script>
 
 </body>
+
 </html>
