@@ -1,0 +1,31 @@
+{
+  "name": "plagiarism-detector",
+  "version": "1.0.0",
+  "description": "[![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://crypt0knights.github.io/Plagiarism-Detector/) [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Crypt0knights/Plagiarism-Detector/blob/master/LICENSE) [![Open Source Love svg3](https://badges.frapsoft.com/os/v3/open-source.svg?v=103)](http://github.com/crypt0knights/)",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sidntrivedi012/Plagiarism-Detector.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sidntrivedi012/Plagiarism-Detector/issues"
+  },
+  "homepage": "https://github.com/sidntrivedi012/Plagiarism-Detector#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.16.4",
+    "fs": "0.0.1-security",
+    "mongodb": "^3.2.3",
+    "multer": "^1.4.1",
+    "nodemon": "^1.19.0",
+    "pdf-parse": "^1.1.1"
+  }
+}
