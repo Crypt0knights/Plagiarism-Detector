@@ -1,9 +1,8 @@
 const express = require("express");
 const multer = require("multer");
 const path = require("path");
-const fs = require("fs");
-const pdf = require("pdf-parse");
-
+let fs = require("fs");
+let PDFParser = require("pdf2json");
 const app = express();
 const port = process.env.PORT || 3003;
 
@@ -13,10 +12,7 @@ var storage = multer.diskStorage({
     cb(null, "./public/myuploads");
   },
   filename: function(req, file, cb) {
-    cb(
-      null,
-      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
-    );
+    cb(null, file.fieldname + ".pdf");
   }
 });
 
@@ -28,26 +24,29 @@ app.get("/", function(req, res) {
   res.sendFile(__dirname + "/index.html");
 });
 
-app.use(express.static("."));
 //set static folder
+app.use(express.static("."));
 app.use(express.static("./public"));
 
-//description
+//description of routes
+
 app.post("/upload", (req, res) => {
   upload(req, res, error => {
     if (error) {
       return res.end("Error uploading file.");
     } else {
+      let pdfParser = new PDFParser(this, 1);
+      pdfParser.on("pdfParser_dataError", errData => console.error(errData));
+      pdfParser.on("pdfParser_dataReady", pdfData => {
+        fs.writeFileSync("./sample.txt", pdfParser.getRawTextContent());
+      });
+      pdfParser.loadPDF(
+        path.resolve(__dirname + "/public/myuploads/pdffile.pdf")
+      );
       res.end("File is uploaded", {
         filename: `myuploads/${req.file.filename}`
       });
     }
   });
 });
-//extracting text from pdf file
-/*let dataBuffer = fs.readFileSync("./public/myuploads/filename");
-pdf(dataBuffer).then(function(data) {
-  console.log(data.text);
-});*/
-
 app.listen(port, () => console.log(`server is running fine at ${port}...`));
