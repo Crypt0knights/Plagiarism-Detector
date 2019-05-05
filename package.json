@@ -25,8 +25,13 @@
     "fs": "0.0.1-security",
     "mongodb": "^3.2.3",
     "multer": "^1.4.1",
+    "natural": "^0.6.3",
+    "node-nlp": "^3.0.3",
     "nodemon": "^1.19.0",
     "pdf-parse": "^1.1.1",
-    "plagiarism-checker": "^1.2.1"
+    "pdf2json": "^1.1.8",
+    "plagiarism-checker": "^1.2.1",
+    "python-shell": "^1.0.7",
+    "website-scraper": "^4.0.1"
   }
 }
