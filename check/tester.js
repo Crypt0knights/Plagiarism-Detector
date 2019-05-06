@@ -4,8 +4,8 @@ const fs = require("fs");
 let clCloud = new CopyleaksCloud();
 let config = clCloud.getConfig();
 
-let email = "sidntrivedi012@gmail.com";
-let apikey = "062BC3EF-6210-41AA-A91E-C2783C8E83F6";
+let email = "mark5787924@gmail.com";
+let apikey = "6D69520E-6AED-4339-BE27-BD4D0384136D";
 
 function getStatus(_pid, cb) {
   clCloud.getProcessStatus(_pid, function(resp, err) {
@@ -26,8 +26,7 @@ function init(pid, cb) {
     });
   }, 1000);
 }
-
-function abc(req, res) {
+function abc() {
   clCloud.login(email, apikey, config.E_PRODUCT.Education, callback);
 
   function callback(resp, err) {
@@ -57,11 +56,6 @@ function abc(req, res) {
   }
 }
 
-process.on("exit", function() {
-  console.log("Process closed !!");
-});
 module.exports = {
-  getStatus,
-  init,
   abc
 };

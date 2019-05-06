@@ -43,17 +43,18 @@ app.post("/upload", (req, res) => {
     if (error) {
       return res.end("Error uploading file.");
     } else {
+      console.log(`1. Parsing the pdf.`);
+      //parsing the pdf ===================
       let pdfParser = new PDFParser(this, 1);
       pdfParser.on("pdfParser_dataError", errData => console.error(errData));
       pdfParser.on("pdfParser_dataReady", pdfData => {
-        fs.writeFileSync(
-          "./check/files/search.txt",
-          pdfParser.getRawTextContent()
-        );
+        fs.writeFileSync("./original.txt", pdfParser.getRawTextContent());
       });
       pdfParser.loadPDF(
         path.resolve(__dirname + "/public/myuploads/pdffile.pdf")
       );
+      console.log("2. Parsing done. Applying NLP to it");
+      // spawning NLP script on the PDF text=============
       const spawn = require("child_process").spawn;
       const ls = spawn("python3", ["script.py"]);
 
@@ -79,8 +80,29 @@ app.post("/upload", (req, res) => {
 //@access -   PUBLIC
 app.use("/", router);
 router.get("/check", function(req, res) {
-  checkdata.abc();
-  res.end("This is the check page");
+  console.log("3. Using API to query the NLP string");
+  checkdata.abc(function(req, res) {
+    if (error) {
+      res.end("Error in checking");
+    } else {
+      console.log("4. Scraping data from top 5 websites after sorting");
+
+      const spawn = require("child_process").spawn;
+      const ls = spawn("python3", ["scrape.py"]);
+
+      ls.stdout.on("data", data => {
+        console.log(`stdout: ${data}`);
+      });
+
+      ls.stderr.on("data", data => {
+        console.log(`stderr: ${data}`);
+      });
+
+      ls.on("close", code => {
+        console.log(`child process exited with code ${code}`);
+      });
+    }
+  });
 });
 
 module.exports = router;
