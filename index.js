@@ -111,3 +111,15 @@ router.get("/check", function(req, res) {
 
 module.exports = router;
 app.listen(port, () => console.log(`server is running fine at ${port}...`));
+
+/*Todo :
+1. Upload pdf and then convert it into text.
+2. Use NLP on the text
+3. Use the NLPd text on API
+4. Get the URLs received and then sort the json in descending order.
+5. use string matching on top 5 urls
+6. log the result as json
+7. try to print it on web too.
+URL  | Percentage matching | Matched words|
+-----|---------------------|--------------|
+URL1 |         95%         |sat,sad,hello |*/
