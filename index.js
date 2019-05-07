@@ -60,20 +60,7 @@ app.post("/upload", (req, res) => {
       );
       console.log("2. Parsing done. Applying NLP to it");
       // spawning NLP script on the PDF text=============
-      const spawn = require("child_process").spawn;
-      const ls = spawn("python3", ["script.py"]);
-
-      ls.stdout.on("data", data => {
-        console.log(`stdout: ${data}`);
-      });
-
-      ls.stderr.on("data", data => {
-        console.log(`stderr: ${data}`);
-      });
-
-      ls.on("close", code => {
-        console.log(`child process exited with code ${code}`);
-      });
+      shell.exec("./checker.sh");
       res.redirect("/check");
       res.end("ended");
     }
@@ -83,13 +70,13 @@ app.post("/upload", (req, res) => {
 //@type - POST /upload
 //@desc - route to check page
 //@access -   PUBLIC
-app.use("/", router);
+/*app.use("/", router);
 router.get("/check", function(req, res) {
   console.log("In check router.3. Using API to query the NLP string");
   //running shellscript for API
   shell.exec("./checker.sh");
 });
-
+*/
 module.exports = router;
 app.listen(port, () => console.log(`server is running fine at ${port}...`));
 
