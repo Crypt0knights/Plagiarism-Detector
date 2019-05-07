@@ -237,10 +237,10 @@ def main():
 	
 	with open('a.txt','r') as file:
 		src_content=file.read()
-		print(src_content)
+		#print(src_content)
 	with open('b.txt','r') as file:
 		input_content=file.read()
-		print(input_content)
+		#print(input_content)
 	detector(src_content.upper(),input_content.upper())
 
 
