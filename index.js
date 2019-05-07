@@ -43,17 +43,21 @@ app.post("/upload", (req, res) => {
     if (error) {
       return res.end("Error uploading file.");
     } else {
+      console.log(`1. Parsing the pdf.`);
+      //parsing the pdf ===================
       let pdfParser = new PDFParser(this, 1);
       pdfParser.on("pdfParser_dataError", errData => console.error(errData));
       pdfParser.on("pdfParser_dataReady", pdfData => {
         fs.writeFileSync(
           "./check/files/search.txt",
           pdfParser.getRawTextContent()
-        );
+        ); //change to ./original.txt here
       });
       pdfParser.loadPDF(
         path.resolve(__dirname + "/public/myuploads/pdffile.pdf")
       );
+      /*console.log("2. Parsing done. Applying NLP to it");
+      // spawning NLP script on the PDF text=============
       const spawn = require("child_process").spawn;
       const ls = spawn("python3", ["script.py"]);
 
@@ -67,7 +71,7 @@ app.post("/upload", (req, res) => {
 
       ls.on("close", code => {
         console.log(`child process exited with code ${code}`);
-      });
+      });*/
       res.redirect("/check");
       res.end("ended");
     }
@@ -79,9 +83,60 @@ app.post("/upload", (req, res) => {
 //@access -   PUBLIC
 app.use("/", router);
 router.get("/check", function(req, res) {
-  checkdata.abc();
-  res.end("This is the check page");
+  console.log("3. Using API to query the NLP string");
+  checkdata.abc(function(error) {
+    if (error) {
+      console.log("error in checking");
+      res.end("Error in checking");
+    } else {
+      console.log("4. Scraping data from top 5 websites after sorting");
+
+      const spawn = require("child_process").spawn;
+      const ls = spawn("python3", ["sort.py"]);
+
+      ls.stdout.on("data", data => {
+        console.log(`stdout1: ${data}`);
+      });
+
+      ls.stderr.on("data", data => {
+        console.log(`stderr: ${data}`);
+      });
+
+      ls.on("close", code => {
+        console.log(`child process exited with code ${code}`);
+      });
+
+      console.log("4. Scraping data from top 5 websites after sorting");
+
+      const spawn = require("child_process").spawn;
+      const ls = spawn("python3", ["scrape.py"]);
+
+      ls.stdout.on("data", data => {
+        console.log(`stdout1: ${data}`);
+      });
+
+      ls.stderr.on("data", data => {
+        console.log(`stderr: ${data}`);
+      });
+
+      ls.on("close", code => {
+        console.log(`child process exited with code ${code}`);
+      });
+    }
+  });
 });
 
 module.exports = router;
 app.listen(port, () => console.log(`server is running fine at ${port}...`));
+
+/*Todo :
+1. Upload pdf and then convert it into text.
+2. Use NLP on the text
+3. Use the NLPd text on API
+4. Get the URLs received and then sort the json in descending order.
+5. use string matching on top 5 urls
+6. log the result as json
+7. try to print it on web too.
+URL  | Percentage matching | Matched words|
+-----|---------------------|--------------|
+URL1 |         95%         |sat,sad,hello |*/

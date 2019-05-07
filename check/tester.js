@@ -4,8 +4,8 @@ const fs = require("fs");
 let clCloud = new CopyleaksCloud();
 let config = clCloud.getConfig();
 
-let email = "sidntrivedi012@gmail.com";
-let apikey = "062BC3EF-6210-41AA-A91E-C2783C8E83F6";
+let email = "sajalgarg17.sg@gmail.com";
+let apikey = "84B4948A-7080-4748-8454-7844D27B1C58";
 
 function getStatus(_pid, cb) {
   clCloud.getProcessStatus(_pid, function(resp, err) {
@@ -27,7 +27,7 @@ function init(pid, cb) {
   }, 1000);
 }
 
-function abc(req, res) {
+function abc(done) {
   clCloud.login(email, apikey, config.E_PRODUCT.Education, callback);
 
   function callback(resp, err) {
@@ -48,11 +48,15 @@ function abc(req, res) {
             });
             fs.writeFileSync("./output.json", JSON.stringify(res, null, 2));
             if (isNaN(err)) console.log("error: " + err);
+            done();
           });
         });
         console.log("Process has been created--> " + resp.ProcessId);
       }
-      if (!isNaN(err)) console.log("error: " + err);
+      if (!isNaN(err)) {
+        console.log("error: " + err);
+        done(err);
+      }
     });
   }
 }
@@ -61,7 +65,5 @@ process.on("exit", function() {
   console.log("Process closed !!");
 });
 module.exports = {
-  getStatus,
-  init,
   abc
 };
