@@ -3,6 +3,8 @@ from aho import *
 from collections import deque
 import ahocorasick as ahc
 import math
+import os
+from os import path
 global prime_nos,phrases,word_code,input_phrases,input_phrases_idx
 prime_nos=(113,117,119,123,129,131,137)
 phrases=[]
@@ -231,19 +233,33 @@ def percentage_calc(common_words,src_content,doc_content):
 	#print("Plagiarism Percentage in file 2 :",end=' ')
 	#print(str(plagPercent2)+"%")
 
+def source(filename):
+	try:
+		with open(filename,'r') as file:
+			src_content=file.read()
+			#print(src_content)
+		with open('search.txt','r') as file:
+			input_content=file.read()
+			#print(input_content)
+		detector(src_content.upper(),input_content.upper())
+	except IndexError:
+		pass
 
 
 def search_main():
-	
-	with open('source.txt','r') as file:
-		src_content=file.read()
-		#print(src_content)
-	with open('search.txt','r') as file:
-		input_content=file.read()
-		#print(input_content)
-	detector(src_content.upper(),input_content.upper())
+	if path.exists("source1.txt"):
+		source("source1.txt")
+	if path.exists("source2.txt"):
+		source("source2.txt")
+	if path.exists("source3.txt"):
+		source("source3.txt")
+	if path.exists("source4.txt"):
+		source("source4.txt")
+	if path.exists("source5.txt"):
+		source("source5.txt")	
 
-search_main()
+if __name__ == "__main__":
+	search_main()
 
 
 

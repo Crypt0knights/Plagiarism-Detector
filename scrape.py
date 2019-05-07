@@ -35,7 +35,7 @@ for url in data.values():
         print(text_from_html(html))
         f = open("source{}.txt".format(i),"w")
         text = text_from_html(html)[1:1999]
-        f.write(text)
+        f.write(" ".join(text.strip().split()))
     except urllib.error.HTTPError:
         print("scraping not allowed")
     i+=1
