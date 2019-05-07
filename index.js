@@ -92,10 +92,27 @@ router.get("/check", function(req, res) {
       console.log("4. Scraping data from top 5 websites after sorting");
 
       const spawn = require("child_process").spawn;
+      const ls = spawn("python3", ["sort.py"]);
+
+      ls.stdout.on("data", data => {
+        console.log(`stdout1: ${data}`);
+      });
+
+      ls.stderr.on("data", data => {
+        console.log(`stderr: ${data}`);
+      });
+
+      ls.on("close", code => {
+        console.log(`child process exited with code ${code}`);
+      });
+
+      console.log("4. Scraping data from top 5 websites after sorting");
+
+      const spawn = require("child_process").spawn;
       const ls = spawn("python3", ["scrape.py"]);
 
       ls.stdout.on("data", data => {
-        console.log(`stdout: ${data}`);
+        console.log(`stdout1: ${data}`);
       });
 
       ls.stderr.on("data", data => {
