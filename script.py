@@ -3,8 +3,8 @@ import string
 from nltk.tokenize import sent_tokenize
 
 def main():
-    clean_source =  open("./check/files/search.txt", "w")
-    source_content = open("original.txt","r").read()
+    clean_source =  open("./search.txt", "w")
+    source_content = open("file.txt","r").read()
 
     for line in sent_tokenize(source_content):
         line = line.translate(str.maketrans('', '', string.punctuation))

@@ -6,7 +6,7 @@ let PDFParser = require("pdf2json");
 const app = express();
 const port = process.env.PORT || 3003;
 const router = express.Router();
-var checkdata = require("./check/tester");
+var shell = require("shelljs");
 
 //multer setting
 var storage = multer.diskStorage({
@@ -49,14 +49,16 @@ app.post("/upload", (req, res) => {
       pdfParser.on("pdfParser_dataError", errData => console.error(errData));
       pdfParser.on("pdfParser_dataReady", pdfData => {
         fs.writeFileSync(
-          "./check/files/search.txt",
+          path.resolve(__dirname + "/file.txt"),
           pdfParser.getRawTextContent()
         ); //change to ./original.txt here
       });
+      //console.log(__dirname + "/file.txt");
+
       pdfParser.loadPDF(
         path.resolve(__dirname + "/public/myuploads/pdffile.pdf")
       );
-      /*console.log("2. Parsing done. Applying NLP to it");
+      console.log("2. Parsing done. Applying NLP to it");
       // spawning NLP script on the PDF text=============
       const spawn = require("child_process").spawn;
       const ls = spawn("python3", ["script.py"]);
@@ -71,7 +73,7 @@ app.post("/upload", (req, res) => {
 
       ls.on("close", code => {
         console.log(`child process exited with code ${code}`);
-      });*/
+      });
       res.redirect("/check");
       res.end("ended");
     }
@@ -83,47 +85,9 @@ app.post("/upload", (req, res) => {
 //@access -   PUBLIC
 app.use("/", router);
 router.get("/check", function(req, res) {
-  console.log("3. Using API to query the NLP string");
-  checkdata.abc(function(error) {
-    if (error) {
-      console.log("error in checking");
-      res.end("Error in checking");
-    } else {
-      console.log("4. Scraping data from top 5 websites after sorting");
-
-      const spawn = require("child_process").spawn;
-      const ls = spawn("python3", ["sort.py"]);
-
-      ls.stdout.on("data", data => {
-        console.log(`stdout1: ${data}`);
-      });
-
-      ls.stderr.on("data", data => {
-        console.log(`stderr: ${data}`);
-      });
-
-      ls.on("close", code => {
-        console.log(`child process exited with code ${code}`);
-      });
-
-      console.log("4. Scraping data from top 5 websites after sorting");
-
-      const spawn = require("child_process").spawn;
-      const ls = spawn("python3", ["scrape.py"]);
-
-      ls.stdout.on("data", data => {
-        console.log(`stdout1: ${data}`);
-      });
-
-      ls.stderr.on("data", data => {
-        console.log(`stderr: ${data}`);
-      });
-
-      ls.on("close", code => {
-        console.log(`child process exited with code ${code}`);
-      });
-    }
-  });
+  console.log("In check router.3. Using API to query the NLP string");
+  //running shellscript for API
+  shell.exec("./checker.sh");
 });
 
 module.exports = router;
