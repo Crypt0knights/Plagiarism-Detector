@@ -1,27 +1,17 @@
 PUBLICATIONS 
-●VERMAABHARADWAJKK
-2017IDENTIFYINGCOMMUNITYSTRUCTUREINAMULTIRELATIONAL             
-NETWORKEMPLOYINGNONNEGATIVETENSORFACTORIZATIONANDGAKMEANSCLUSTERINGWILEY          
-INTERDISCIPLINARY REVIEWS DATA MINING AND KNOWLEDGE DISCOVERY 71
-126
-●VERMAABHARADWAJKK
-2017ACOMPARATIVESTUDYBASEDONTENSORFACTORIZATIONAND               
-CLUSTERINGTECHNIQUESFORCOMMUNITYMININGINHETEROGENEOUSSOCIALNETWORKINPROCEEDINGSOF            
-THE8THINTERNATIONALCONFERENCEONCOMPUTINGCOMMUNICATIONANDNETWORKINGTECHNOLOGIES          
-PP
-16
-IEEE
-●VERMAABHARADWAJKK
-2016FUZZYOVERLAPPINGCOMMUNITYDETECTIONINMULTIRELATIONAL             
-NETWORKSINPROCEEDINGSOFTHEINTERNATIONALCONFERENCEONSOFTCOMPUTINGANDPATTERN            
-RECOGNITION PP
-656666
-SPRINGER
-●VERMAABHARADWAJKK
-2015DISCOVERINGCOMMUNITIESINHETEROGENEOUSSOCIAL            
-NETWORKSBASEDONNONNEGATIVETENSORFACTORIZATIONANDCLUSTERENSEMBLEAPPROACHIN           
-PROCEEDINGSOFTHE2NDINTERNATIONALCONFERENCEONMININGINTELLIGENCEANDKNOWLEDGE           
-EXPLORATION PP
-150160
-SPRINGER
-PAGE 0 BREAK
+●Verma,A.,&Bharadwaj,K.K.(2017).Identifyingcommunitystructureinamulti-relational             
+networkemployingnon-negativetensorfactorizationandGAk-meansclustering.Wiley          
+Interdisciplinary Reviews: Data Mining and Knowledge Discovery, 7(1). 1-26. 
+●Verma,A.,&Bharadwaj,K.K.(2017).Acomparativestudybasedontensorfactorizationand               
+clusteringtechniquesforcommunitymininginheterogeneoussocialnetwork.InProceedingsof            
+the8thInternationalConferenceonComputing,CommunicationandNetworkingTechnologies          
+(pp. 1-6). IEEE. 
+●Verma,A.,&Bharadwaj,K.K.(2016).FuzzyOverlappingCommunityDetectioninMulti-relational             
+Networks.InProceedingsoftheInternationalConferenceonSoftComputingandPattern            
+Recognition (pp. 656-666). Springer. 
+●Verma,A.,&Bharadwaj,K.K.(2015).DiscoveringCommunitiesinHeterogeneousSocial            
+NetworksBasedonNon-negativeTensorFactorizationandClusterEnsembleApproach.In           
+Proceedingsofthe2ndInternationalConferenceonMiningIntelligenceandKnowledge           
+Exploration (pp. 150-160). Springer.  
+ 
+----------------Page (0) Break----------------

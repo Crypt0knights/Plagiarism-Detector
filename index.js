@@ -48,12 +48,15 @@ app.post("/upload", (req, res) => {
       let pdfParser = new PDFParser(this, 1);
       pdfParser.on("pdfParser_dataError", errData => console.error(errData));
       pdfParser.on("pdfParser_dataReady", pdfData => {
-        fs.writeFileSync("./original.txt", pdfParser.getRawTextContent());
+        fs.writeFileSync(
+          "./check/files/search.txt",
+          pdfParser.getRawTextContent()
+        ); //change to ./original.txt here
       });
       pdfParser.loadPDF(
         path.resolve(__dirname + "/public/myuploads/pdffile.pdf")
       );
-      console.log("2. Parsing done. Applying NLP to it");
+      /*console.log("2. Parsing done. Applying NLP to it");
       // spawning NLP script on the PDF text=============
       const spawn = require("child_process").spawn;
       const ls = spawn("python3", ["script.py"]);
@@ -68,7 +71,7 @@ app.post("/upload", (req, res) => {
 
       ls.on("close", code => {
         console.log(`child process exited with code ${code}`);
-      });
+      });*/
       res.redirect("/check");
       res.end("ended");
     }
@@ -81,8 +84,9 @@ app.post("/upload", (req, res) => {
 app.use("/", router);
 router.get("/check", function(req, res) {
   console.log("3. Using API to query the NLP string");
-  checkdata.abc(function(req, res) {
+  checkdata.abc(function(error) {
     if (error) {
+      console.log("error in checking");
       res.end("Error in checking");
     } else {
       console.log("4. Scraping data from top 5 websites after sorting");
