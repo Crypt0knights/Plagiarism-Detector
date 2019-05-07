@@ -45,6 +45,13 @@ def text_from_html(body):
 
 
 
+html = urllib.request.urlopen('http://www.nytimes.com/2009/12/21/us/21storm.html').read()
+f = open("demofile2.txt", "w")
+f.write(text_from_html(html).upper())
+f.close()
+print("Done")
+
+
 def scrape_text():
         fd = open('url_percent.json','r')
         data = json.load(fd)

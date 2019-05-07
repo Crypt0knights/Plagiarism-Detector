@@ -1,0 +1,37 @@
+[
+  {
+    "match_url": null,
+    "match_percents": 100,
+    "Number_of_copied_words": 34
+  },
+  {
+    "match_url": null,
+    "match_percents": 97,
+    "Number_of_copied_words": 33
+  },
+  {
+    "match_url": null,
+    "match_percents": 97,
+    "Number_of_copied_words": 33
+  },
+  {
+    "match_url": null,
+    "match_percents": 38,
+    "Number_of_copied_words": 13
+  },
+  {
+    "match_url": "http://www.jiit.ac.in/ankita-verma",
+    "match_percents": 38,
+    "Number_of_copied_words": 13
+  },
+  {
+    "match_url": "https://www.ijitee.org/download/volume-8-issue-4/",
+    "match_percents": 14,
+    "Number_of_copied_words": 5
+  },
+  {
+    "match_url": null,
+    "match_percents": 14,
+    "Number_of_copied_words": 5
+  }
+]

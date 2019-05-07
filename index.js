@@ -92,10 +92,27 @@ router.get("/check", function(req, res) {
       console.log("4. Scraping data from top 5 websites after sorting");
 
       const spawn = require("child_process").spawn;
+      const ls = spawn("python3", ["sort.py"]);
+
+      ls.stdout.on("data", data => {
+        console.log(`stdout1: ${data}`);
+      });
+
+      ls.stderr.on("data", data => {
+        console.log(`stderr: ${data}`);
+      });
+
+      ls.on("close", code => {
+        console.log(`child process exited with code ${code}`);
+      });
+
+      console.log("4. Scraping data from top 5 websites after sorting");
+
+      const spawn = require("child_process").spawn;
       const ls = spawn("python3", ["scrape.py"]);
 
       ls.stdout.on("data", data => {
-        console.log(`stdout: ${data}`);
+        console.log(`stdout1: ${data}`);
       });
 
       ls.stderr.on("data", data => {
@@ -111,3 +128,15 @@ router.get("/check", function(req, res) {
 
 module.exports = router;
 app.listen(port, () => console.log(`server is running fine at ${port}...`));
+
+/*Todo :
+1. Upload pdf and then convert it into text.
+2. Use NLP on the text
+3. Use the NLPd text on API
+4. Get the URLs received and then sort the json in descending order.
+5. use string matching on top 5 urls
+6. log the result as json
+7. try to print it on web too.
+URL  | Percentage matching | Matched words|
+-----|---------------------|--------------|
+URL1 |         95%         |sat,sad,hello |*/
