@@ -1,5 +1,5 @@
-from .bloom_filter import *
-from .aho import *
+from bloom_filter import *
+from aho import *
 from collections import deque
 import ahocorasick as ahc
 import math
@@ -224,27 +224,26 @@ def percentage_calc(common_words,src_content,doc_content):
 
 	d = len(common_words)
 	plagPercent1 = (d/float(src_size)) * 100
-	plagPercent2 = (d/float(doc_size)) * 100
+	#plagPercent2 = (d/float(doc_size)) * 100
 
 	print("Plagiarism Percentage in file 1 :",end=' ')
 	print(str(plagPercent1)+"%")
-	print("Plagiarism Percentage in file 2 :",end=' ')
-	print(str(plagPercent2)+"%")
+	#print("Plagiarism Percentage in file 2 :",end=' ')
+	#print(str(plagPercent2)+"%")
 
 
 
-def ss(path_source, path_scraped):
+def search_main():
 	
-	with open(path_source,'r') as file:
+	with open('source.txt','r') as file:
 		src_content=file.read()
 		#print(src_content)
-	with open(path_scraped,'r') as file:
+	with open('search.txt','r') as file:
 		input_content=file.read()
 		#print(input_content)
 	detector(src_content.upper(),input_content.upper())
 
+search_main()
 
-if __name__ == '__main__':
-	ss()
 
 
