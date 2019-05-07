@@ -2,7 +2,7 @@ import json
 
 def main():
 
-	f=open('./output.json')
+	f=open('./result.json')
 	data = json.load(f)
 	urls={}
 	final= {}
