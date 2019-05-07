@@ -1,11 +1,8 @@
 import json
 
 def main():
-<<<<<<< HEAD
+
 	f=open('./output.json')
-=======
-	f=open('./check/output.json')
->>>>>>> f55634ccf044a03725dd8c5708020d1da920f2ae
 	data = json.load(f)
 	urls={}
 	final= {}
