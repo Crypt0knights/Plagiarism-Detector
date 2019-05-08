@@ -228,7 +228,7 @@ def percentage_calc(common_words,src_content,doc_content):
 	plagPercent1 = (d/float(src_size)) * 100
 	#plagPercent2 = (d/float(doc_size)) * 100
 
-	print("Plagiarism Percentage in file 1 :",end=' ')
+	print("Percentage match found between files :",end=' ')
 	print(str(plagPercent1)+"%")
 	#print("Plagiarism Percentage in file 2 :",end=' ')
 	#print(str(plagPercent2)+"%")
@@ -248,15 +248,42 @@ def source(filename):
 
 def search_main():
 	if path.exists("source1.txt"):
+		print("source1.txt")
 		source("source1.txt")
+
+	else:
+		print("Site is encrypted")
+
 	if path.exists("source2.txt"):
+		
 		source("source2.txt")
+	
+	else:
+		print("Site is encrypted")
+
 	if path.exists("source3.txt"):
+
 		source("source3.txt")
+	
+	else:
+		print("Site is encrypted")
+
+
 	if path.exists("source4.txt"):
+
 		source("source4.txt")
+	
+	else:
+		print("Site is encrypted")
+
+
 	if path.exists("source5.txt"):
+
 		source("source5.txt")	
+
+	else:
+		print("Site is encrypted")
+
 
 if __name__ == "__main__":
 	search_main()
