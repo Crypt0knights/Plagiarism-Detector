@@ -4,7 +4,8 @@ from bs4 import BeautifulSoup
 from bs4.element import Comment
 import urllib.request
 import json
-from search import *
+import http.client
+
 
 
 url_percent=open('./url_percent.json')
@@ -38,5 +39,7 @@ for url in data.values():
         f.write(" ".join(text.strip().split()))
     except urllib.error.HTTPError:
         print("scraping not allowed")
+    except http.client.IncompleteRead:
+        print("Incomplete read scraping not allowed")
     i+=1
 
