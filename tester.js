@@ -4,8 +4,8 @@ const fs = require("fs");
 let clCloud = new CopyleaksCloud();
 let config = clCloud.getConfig();
 
-let email = "araushan001@gmail.com";
-let apikey = "A1FAEF8A-7A8C-4F9D-932D-00B30A60301F";
+let email = "mayank.singh081997@gmail.com";
+let apikey = "e7ef294d-e6fc-4a0a-a658-5d67159611ab";
 
 function getStatus(_pid, cb) {
   clCloud.getProcessStatus(_pid, function(resp, err) {

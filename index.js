@@ -48,19 +48,16 @@ app.post("/upload", (req, res) => {
       let pdfParser = new PDFParser(this, 1);
       pdfParser.on("pdfParser_dataError", errData => console.error(errData));
       pdfParser.on("pdfParser_dataReady", pdfData => {
-        fs.writeFileSync(
-          path.resolve(__dirname + "/file.txt"),
-          pdfParser.getRawTextContent()
-        ); //change to ./original.txt here
+        fs.writeFileSync("./file.txt", pdfParser.getRawTextContent()); //change to ./original.txt here
       });
-      //console.log(__dirname + "/file.txt");
+      console.log(__dirname + "/file.txt");
 
       pdfParser.loadPDF(
         path.resolve(__dirname + "/public/myuploads/pdffile.pdf")
       );
       console.log("2. Parsing done. Applying NLP to it");
       // spawning NLP script on the PDF text=============
-      shell.exec("./checker.sh");
+
       res.redirect("/check");
       res.end("ended");
     }
@@ -70,13 +67,15 @@ app.post("/upload", (req, res) => {
 //@type - POST /upload
 //@desc - route to check page
 //@access -   PUBLIC
-/*app.use("/", router);
+app.use("/", router);
 router.get("/check", function(req, res) {
   console.log("In check router.3. Using API to query the NLP string");
-  //running shellscript for API
   shell.exec("./checker.sh");
+  //running shellscript for API
+
+  res.end("ended");
 });
-*/
+
 module.exports = router;
 app.listen(port, () => console.log(`server is running fine at ${port}...`));
 
