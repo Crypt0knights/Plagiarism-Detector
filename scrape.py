@@ -5,6 +5,7 @@ from bs4.element import Comment
 import urllib.request
 import json
 import http.client
+import PyPDF2
 
 
 
@@ -29,17 +30,38 @@ def text_from_html(body):
 
 i = 1
 for url in data.values():
-#print(i)
-#print(url)
-    try:
-        html = urllib.request.urlopen(url).read()
-        print(text_from_html(html))
-        f = open("source{}.txt".format(i),"w")
-        text = text_from_html(html)[1:1999]
-        f.write(" ".join(text.strip().split()))
-    except urllib.error.HTTPError:
-        print("scraping not allowed")
-    except http.client.IncompleteRead:
-        print("Incomplete read scraping not allowed")
-    i+=1
 
+    x  = url.find('.pdf')
+
+    if x != -1:
+        print('I found a pdf')
+        print('Downloading it ....')
+        urllib.request.urlretrieve(url, 'pdf_file.pdf')
+        print('Converting pdf to text')
+        pdf = PyPDF2.PdfFileReader(open('pdf_file.pdf','rb'))
+        text = ''
+        for page in pdf.pages:
+            text = text + page.extractText()
+
+        fd = open('source{}.txt'.format(i),'w')
+        fd.write(text)
+        fd.close()
+        print('Conversion done')
+
+
+    else:
+        try:
+            print('Scraping text from web')
+            html = urllib.request.urlopen(url).read()
+            # print(text_from_html(html))
+            f = open("source{}.txt".format(i),"w")
+            text = text_from_html(html)[1:1999]
+            f.write(" ".join(text.strip().split()))
+            print('scraping done')
+            i=i+1
+        except urllib.error.HTTPError:
+            print("scraping not allowed")
+        except urllib.error.URLError:
+            print('Certificates verification failed')
+        except http.client.IncompleteRead:
+            print("Incomplete read scraping not allowed")
