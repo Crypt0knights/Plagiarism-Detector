@@ -32,7 +32,7 @@
     "pdf2json": "^1.1.8",
     "plagiarism-checker": "^1.2.1",
     "python-shell": "^1.0.7",
-    "shelljs": "^0.8.3",
+    "shelljs": "^0.8.5",
     "website-scraper": "^4.0.1"
   }
 }
